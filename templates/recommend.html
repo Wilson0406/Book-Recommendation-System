@@ -1,1 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BooksMate</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <style>
+    body {
+    background: #000;
 
+    }
+
+    h1 {
+    font-size: 2.5em;
+    color: #fff;
+    }
+  </style>
+  <body>
+  <div class="root">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">BooksMate</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/recommend">Recommend</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mailto:wilsonvidyut@gmail.com">Contact</a>
+        </li>
+      </ul>
+<!--      <form class="d-flex" role="search">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-danger" type="submit">Search</button>-->
+<!--      </form>-->
+    </div>
+  </div>
+</nav>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 style="margin-top: 50px; margin-bottom: 50px;">Recommend Books</h1>
+            <form class="input-group-lg" action="/recommend_books" method="post">
+<!--              <input type="text" class="form-control" list="books" name="input_user" id="input_user">-->
+<!--              <datalist name="input_user" id="books">-->
+<!--                {% for i in name %}-->
+<!--                <option name="input_user" value="{{i[0]}}" />-->
+<!--                {% endfor %}-->
+<!--              </datalist><br>-->
+              <input type="text" name="user_input" class="form-control input-group input-group-lg" autocomplete="" placeholder="Enter Book Name"><br>
+              <input type="submit" class="btn btn-warning gap-2 col-md-12">
+
+                <button class="btn btn-outline-primary mx-auto mt-4 col-md-12" formaction="/list" formmethod="post" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book List</button>
+            <div class="offcanvas offcanvas-end float-right" tabindex="-1" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+              <div class="offcanvas-header bg-secondary">
+                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style="color:#fff;">List of Books</h5>
+                <button type="button" style="color:#fff;" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                  {% if name %}
+                      {% for i in name %}
+                        <p>{{i}}</p>
+                      {% endfor %}
+                  {% endif %}
+              </div>
+            </div>
+            </form>
+          </div>
+
+<!--            <button class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book List</button>-->
+<!--            <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">-->
+<!--              <div class="offcanvas-header">-->
+<!--                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">List of Books</h5>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>-->
+<!--              </div>-->
+<!--              <div class="offcanvas-body">-->
+<!--                <p>Below is the list of the books available on this site:</p>-->
+<!--              </div>-->
+<!--            </div>-->
+
+          {% if data %}
+            {% for i in data %}
+          <div class="col-md-3" style="margin-top: 50px;">
+                  <div class="card">
+                      <img src="{{i[2]}}" class="card-img-top">
+                    <div class="card-body">
+                    <h6 class="card-text">{{i[0]}}</h6>
+                      <p>{{i[1]}}</p>
+                    </div>
+                  </div>
+              </div>
+            {% endfor %}
+
+          {% endif%}
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
