@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BooksMate</title>
+    <link rel="shortcut icon" href="../static/assets/BooksMate.ico" type="image/x-icon">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   </head>
   <style>
@@ -21,7 +23,10 @@
   <div class="root">
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">BooksMate</a>
+    <a class="navbar-brand" href="#">
+      <!-- BooksMate -->
+      <img src="../static/assets/BooksMate.png" height="25px" width="138px" alt="">
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -45,8 +50,8 @@
   </div>
 </nav>
 
-      <div class="container">
-        <div class="row">
+      <div class="container py-5">
+        <div class="row py-5">
           <div class="col-md-12">
             <h1 style="margin-top: 50px; margin-bottom: 50px;">Recommend Books</h1>
             <form class="input-group-lg" action="/recommend_books" method="post">
@@ -57,10 +62,11 @@
 <!--                {% endfor %}-->
 <!--              </datalist><br>-->
               <input type="text" name="user_input" class="form-control input-group input-group-lg" autocomplete="" placeholder="Enter Book Name"><br>
-              <input type="submit" class="btn btn-warning gap-2 col-md-12">
+              <input type="submit" class="btn btn-warning text-reset gap-2 col-md-12">
 
-                <button class="btn btn-outline-primary mx-auto mt-4 col-md-12" formaction="/list" formmethod="post" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book List</button>
-            <div class="offcanvas offcanvas-end float-right" tabindex="-1" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+              <!-- Book List -->
+                <!-- <button class="btn btn-outline-primary mx-auto mt-4 col-md-12" formaction="/list" formmethod="post" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book List</button>
+             <div class="offcanvas offcanvas-end float-right" tabindex="-1" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
               <div class="offcanvas-header bg-secondary">
                 <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style="color:#fff;">List of Books</h5>
                 <button type="button" style="color:#fff;" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -72,7 +78,9 @@
                       {% endfor %}
                   {% endif %}
               </div>
-            </div>
+            </div> -->
+            <!-- Book List end -->
+
             </form>
           </div>
 
@@ -107,9 +115,20 @@
         </div>
       </div>
     </div>
+    
+    <footer class="text-center bg-primary text-white fixed-bottom" style="bottom: 0;margin-top: 25px;">
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Made with ❤ by
+        <a class="text-info" style="text-decoration: none;" target="_blank" href="http://wilsonvd.me/"><em><b>Wilson VD</b></em></a>
+      </div>
+      <!-- Copyright -->
+    </footer>
 
 
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>
 </html>
