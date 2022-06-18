@@ -23,7 +23,7 @@ def index():
                            )
 
 @app.route('/recommend')
-def decommend_ui():
+def recommend_ui():
     return render_template('recommend.html')
 
 @app.route('/recommend_books', methods=['POST'])
@@ -37,9 +37,12 @@ def recommend():
     similar_items = sorted(list(enumerate(similarity_score[indi])), key=lambda x: x[1], reverse=True)[1:13]
 
     data = []
+    # name = []
     for i in similar_items:
         item = []
+        # temp_df1 = book_list[book_list['Book-Title'] == pt.index[i[0]]]
         temp_df = books[books['Book-Title'] == pt.index[i[0]]]
+        # name.extend(list(temp_df1.drop_duplicates('Book-Title')['Book-Title'].values))
         item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Title'].values))
         item.extend(list(temp_df.drop_duplicates('Book-Title')['Book-Author'].values))
         item.extend(list(temp_df.drop_duplicates('Book-Title')['Image-URL-M'].values))
@@ -47,11 +50,18 @@ def recommend():
         data.append(item)
 
     print(data)
-    return render_template('recommend.html', data = data, name = list(book_list['Book-Title'].values))
+    return render_template('recommend.html', data = data)
 
-# @app.route('/list', methods=["POST"])
-# def list():
-#     return render_template('recommend.html', name = list(book_list['Book-Title'].values))
+@app.route('/list')
+def listt():
+    # name = []
+    # for i in book_list:
+    #     temp_df1 = book_list[book_list['Book-Title'] == book_list.index[i[0]]]
+    #     name.extend(list(temp_df1.drop_duplicates('Book-Title')['Book-Title'].values))
+
+    # return render_template('list.html')
+    return render_template('list.html', name=list(books['Book-Title'][1:201].values))
+    # return render_template('recommend.html', name = name)
 
 
 if __name__ == '__main__':
