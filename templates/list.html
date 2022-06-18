@@ -4,9 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BooksMate</title>
+    
     <link rel="shortcut icon" href="../static/assets/BooksMate.ico" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css" rel="stylesheet"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <style>
     body {
@@ -44,10 +46,7 @@
           <a class="nav-link" href="mailto:wilsonvidyut@gmail.com">Contact</a>
         </li>
       </ul>
-<!--      <form class="d-flex" role="search">-->
-<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--        <button class="btn btn-outline-danger" type="submit">Search</button>-->
-<!--      </form>-->
+      
     </div>
   </div>
 </nav>
@@ -55,22 +54,25 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 style="margin-top: 50px;">Top 50 Books</h1>
+            <h1 style="margin-top: 50px;">Book List</h1>
           </div>
 
-          {% for i in range(book_name|length) %}
-          <div class="col-md-3" style="margin-top: 50px;">
+          
+          {% for i in name %}
+          <!-- <div class="col-md-3" style="margin-top: 50px;">
             <div class="card">
-                <img src="{{image[i]}}" class="card-img-top">
               <div class="card-body">
-              <h6 class="card-text">{{book_name[i]}}</h6>
-                <p>{{author[i]}}</p>
-                <p>Votes - {{votes[i]}}</p>
-                <p>Rating - {{rating[i]}}</p>
+              <h6 class="card-text text-center" class ="books-name" id="bookname" value = "{{i}}">{{i}}</h6>
+               <h6 class="card-text text-center" class ="books-name" id="bookname" value = "{{i}}">{{ loop.index }}. {{i}}</h6>
+              
               </div>
             </div>
-          </div>
+          </div> -->
+          <ul class="list-group">
+            <li class="list-group-item">{{i}}</li>
+          </ul>
           {% endfor %}
+          
 
 
         </div>
@@ -88,6 +90,19 @@
     </footer>
 
 
+    <script type="text/javascript">
+
+                function copyToClipboard() {
+                    var copyText = document.getElementById("bookname");
+                    navigator.clipboard.writeText(copyText.value).then(() => {
+                        // Alert the user that the action took place.
+                        // Nobody likes hidden stuff being done under the hood!
+                        alert("Copied to clipboard: "+ copyText.value);
+                    });
+                }
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
   </body>

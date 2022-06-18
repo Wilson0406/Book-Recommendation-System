@@ -36,6 +36,9 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="/list">Books List</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="/recommend">Recommend</a>
         </li>
         <li class="nav-item">
@@ -65,7 +68,8 @@
               <input type="submit" class="btn btn-warning text-reset gap-2 col-md-12">
 
               <!-- Book List -->
-                <!-- <button class="btn btn-outline-primary mx-auto mt-4 col-md-12" formaction="/list" formmethod="post" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book List</button>
+              <!--
+                <button class="btn btn-outline-primary mx-auto mt-4 col-md-12" formaction="/list" formmethod="post" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book List</button>
              <div class="offcanvas offcanvas-end float-right" tabindex="-1" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
               <div class="offcanvas-header bg-secondary">
                 <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style="color:#fff;">List of Books</h5>
@@ -79,36 +83,44 @@
                   {% endif %}
               </div>
             </div> -->
-            <!-- Book List end -->
+            <!-- Book List end-->
 
             </form>
           </div>
-
-<!--            <button class="btn btn-primary btn-md" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book List</button>-->
-<!--            <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">-->
-<!--              <div class="offcanvas-header">-->
-<!--                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">List of Books</h5>-->
-<!--                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>-->
-<!--              </div>-->
-<!--              <div class="offcanvas-body">-->
-<!--                <p>Below is the list of the books available on this site:</p>-->
-<!--              </div>-->
-<!--            </div>-->
-
           {% if data %}
-            {% for i in data %}
-          <div class="col-md-3" style="margin-top: 50px;">
-                  <div class="card">
-                      <img src="{{i[2]}}" class="card-img-top">
-                    <div class="card-body">
-                    <h6 class="card-text">{{i[0]}}</h6>
-                      <p>{{i[1]}}</p>
-                    </div>
+          {% for i in data %}
+        <div class="col-md-3" style="margin-top: 50px;">
+                <div class="card">
+                    <img src="{{i[2]}}" class="card-img-top">
+                  <div class="card-body">
+                  <h6 class="card-text">{{i[0]}}</h6>
+                    <p>{{i[1]}}</p>
                   </div>
-              </div>
-            {% endfor %}
+                </div>
+            </div>
+          {% endfor %}
+        {% endif%}
+        
 
-          {% endif%}
+          <!-- <form class="input-group-lg" action="/list" method="post">
+           <button class="btn btn-primary btn-md col-md-12" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Book List</button>
+           <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+             <div class="offcanvas-header">
+               <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">List of Books</h5>
+               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+             </div>
+             <div class="offcanvas-body">
+              {% if name %}
+                      {% for i in name %}
+                        <p>{{i}}</p>
+                      {% endfor %}
+                  {% endif %} 
+               <p>Below is the list of the books available on this site:</p>
+             </div>
+           </div>
+          </form> -->
+
+          
 
 
 
