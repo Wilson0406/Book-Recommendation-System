@@ -3,7 +3,8 @@
 ### Check Out the Book Recommendation System Here:
 <a href="https://books-mate.herokuapp.com/">BooksMate</a>
 ## Description:
-<p>A Book Recommendation System which recommends the users a selection of books based on their interests.</p>
+<p>A Book Recommendation System which recommends the users a selection of books based on their interests.
+It also has a separate page for the list of all books.</p>
 <p>Data used for this project was taken from <a href="https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset">here</a>.</p>
 
 ### 1. Data Cleaning and Pre-Processing
